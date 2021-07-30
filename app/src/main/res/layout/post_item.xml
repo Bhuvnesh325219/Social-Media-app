@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/post_item_SenderName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sender Name"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/post_item_Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12 hours" />
+
+        <TextView
+            android:id="@+id/post_item_Message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Hello i am bhuvnesh Kumar jangid
+             It is first post on this platform i am very happy to compliting this project"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/post_item_Links"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="www.facebook.com"
+            android:textColor="#082AEA" />
+
+        <ImageView
+            android:id="@+id/post_item_Image"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/img1" />
+
+        <ImageButton
+            android:id="@+id/post_item_Share"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/icon_share" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
