@@ -20,6 +20,7 @@ import com.example.myprofile.modal.OtherDetail;
 import com.example.myprofile.modal.Password;
 import com.example.myprofile.modal.PersonalDetail;
 import com.example.myprofile.modal.ProfilePicture;
+import com.example.myprofile.search.SearchData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +31,8 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -44,12 +47,17 @@ public class PasswordActivity extends AppCompatActivity {
 
 
     FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
+
+
+    FirebaseFirestore firebaseFirestore;
+    CollectionReference collectionReference;
 
     String TAG="Hello";
     private String ImageUri;
@@ -73,6 +81,7 @@ public class PasswordActivity extends AppCompatActivity {
 
 
         firebaseAuth=FirebaseAuth.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
 
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("MyProfileUsers");
@@ -80,7 +89,12 @@ public class PasswordActivity extends AppCompatActivity {
         firebaseStorage =FirebaseStorage.getInstance();
         storageReference=firebaseStorage.getReference("MyProfileImages/");
 
+        firebaseFirestore=FirebaseFirestore.getInstance();
+        collectionReference=firebaseFirestore.collection("MySearchData");
+
         myGlobal=new MyGlobal(PasswordActivity.this);
+
+
 
 
 
@@ -141,6 +155,9 @@ public class PasswordActivity extends AppCompatActivity {
                     ProfilePicture picture= ProfilePictureActivity.instanceCreate();
                     Password password= PasswordActivity.instanceCreate();
 
+                    SearchData searchData = new SearchData(personalDetail.getName(),key);
+                    searchData.setSearchName(personalDetail.getName());
+                    searchData.setSearchId(key);
 
                     HashMap<String,HashMap<String,Object>> insertValues =new HashMap<String,HashMap<String,Object>>();
 
@@ -189,6 +206,22 @@ public class PasswordActivity extends AppCompatActivity {
 
                     databaseReference.child(key).setValue(insertValues);
 
+                    collectionReference.document().set(searchData)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                        //myGlobal.toast("Succeed");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+
+
+
+
                      passwordProgressbar.setVisibility(View.GONE);
                     moveActivityForword();
 
@@ -234,6 +267,7 @@ public class PasswordActivity extends AppCompatActivity {
 
         return password;
     }
+
 
     private void initViews() {
         passwordNew=findViewById(R.id.passwordNew);

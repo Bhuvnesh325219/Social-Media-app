@@ -18,6 +18,7 @@ import com.example.myprofile.modal.Home;
 import com.example.myprofile.news.NewsActivity;
 import com.example.myprofile.posts.PostActivity;
 import com.example.myprofile.posts.SharePostActivity;
+import com.example.myprofile.search.SearchActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView profileImage;
     TextView profileName,profileCollege,profileEmail,profileCity;
     Button profileOtherDetails;
-    ImageButton profileOtherOptions,profileNews,profilePost,profileSharePost;
+    ImageButton profileOtherOptions,profileNews,profilePost,profileSharePost,profileSearch;
 
     FirebaseAuth firebaseAuth;
 
@@ -150,6 +151,12 @@ public class ProfileActivity extends AppCompatActivity {
                moveActivity(NewsActivity.class,0);
            }
        });
+       profileSearch.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+              moveActivity(SearchActivity.class,2);
+           }
+       });
 
 
 
@@ -180,5 +187,6 @@ public class ProfileActivity extends AppCompatActivity {
         profileNews=findViewById(R.id.profileNews);
         profilePost=findViewById(R.id.profilePost);
         profileSharePost=findViewById(R.id.profileSharePost);
+        profileSearch=findViewById(R.id.profileSearch);
     }
 }
