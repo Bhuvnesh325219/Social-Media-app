@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".insideactivity.ProfileActivity">
+    tools:context=".search.SearchPeopleActivity">
+
 
     <ImageView
-        android:id="@+id/profileImage"
+        android:id="@+id/search_people_Image"
         android:layout_width="396dp"
         android:layout_height="261dp"
         android:layout_marginStart="20dp"
@@ -22,7 +23,7 @@
         app:srcCompat="@drawable/splashscreenlogo" />
 
     <TextView
-        android:id="@+id/profileName"
+        android:id="@+id/search_people_Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -34,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <TextView
-        android:id="@+id/profileEmail"
+        android:id="@+id/search_people_Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -47,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profileCity"
+        android:id="@+id/search_people_City"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -60,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profileCollege"
+        android:id="@+id/search_people_College"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -73,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profileEmailText"
+        android:id="@+id/search_people_EmailText"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -86,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profileCityText"
+        android:id="@+id/search_people_CityText"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -99,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/profileCollegeText"
+        android:id="@+id/search_people_CollegeText"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -110,77 +111,6 @@
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/profileOtherDetails"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="See Other Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/profileOtherOptions"
-        android:layout_width="60dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/menu_bar_icon" />
-
-    <ImageButton
-        android:id="@+id/profilePost"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="#DFD5D5"
-        android:padding="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/home_small_logo" />
-
-    <ImageButton
-        android:id="@+id/profileNews"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginRight="173dp"
-        android:layout_marginBottom="5dp"
-        android:background="#DCD5D5"
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/news_icon" />
-
-    <ImageButton
-        android:id="@+id/profileSharePost"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/add_icon" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="60dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="95dp"
-        android:layout_marginRight="95dp"
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
