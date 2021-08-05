@@ -60,7 +60,7 @@ public class SharePostActivity extends AppCompatActivity {
     FirestoreRecyclerOptions<PostData> firestoreRecyclerOptions;
 
     private int SELECT_IMAGE_CODE=1;
-    private Uri imageuri=null,uri;
+    private Uri imageuri=Uri.EMPTY,uri;
     private String TAG="MyTag";
 
 
@@ -114,8 +114,8 @@ public class SharePostActivity extends AppCompatActivity {
           String postText=postMsg.getText().toString();
           String postLinks=postLink.getText().toString();
           Uri imageData  =getPicture();
-          String s=imageData.toString();
-          if(s.equals("")||s.length()==0||imageData==null && postText.equals("") && postLinks.equals("")){
+
+          if(imageData==null && imageData.equals(Uri.EMPTY) && postText.equals("") && postLinks.equals("")){
               myGlobal.toast("You haven't write any text and not select any image");
           }
           else{
@@ -126,7 +126,7 @@ public class SharePostActivity extends AppCompatActivity {
               postData.setPostLinks(postLinks);
               postData.setPostCreatedTime(String.valueOf(System.currentTimeMillis()));
 
-              if(s.equals("")||s.length()==0||imageData==null){
+              if(imageData==null && imageData.equals(Uri.EMPTY)){
                 setPost(postData);
               }
               else{

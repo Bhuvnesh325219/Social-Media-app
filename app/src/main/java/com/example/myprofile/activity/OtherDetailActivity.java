@@ -24,8 +24,8 @@ public class OtherDetailActivity extends AppCompatActivity {
     private CountryCodePicker ccp;
     static EditText otherCollege,otherCity;
     private Button otherProceed;
-    static String  otherCountry;
-    private MyGlobal myGlobal;
+    static String  otherCountry="India";
+    static MyGlobal myGlobal;
 
 
     @Override
@@ -71,11 +71,7 @@ public class OtherDetailActivity extends AppCompatActivity {
         ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
             public void onCountrySelected(Country selectedCountry) {
-
-                if(selectedCountry.getName().equals("")){
-                    otherCountry="India";
-                }else{
-                otherCountry=selectedCountry.getName();}
+                otherCountry=selectedCountry.getName();
             }
         });
 
@@ -85,6 +81,8 @@ public class OtherDetailActivity extends AppCompatActivity {
         String country = otherCountry;
         String college=otherCollege.getText().toString();
         String city=otherCity.getText().toString();
+
+
 
         OtherDetail otherDetail= new OtherDetail(country,college,city);
 

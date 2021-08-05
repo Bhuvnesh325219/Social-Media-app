@@ -3,6 +3,7 @@ package com.example.myprofile.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -167,23 +168,25 @@ public class PasswordActivity extends AppCompatActivity {
                     val1.put("DOB",personalDetail.getDob());
                     val1.put("City",otherDetail.getCity());
 
+                        Uri ur=picture.getPicture();
+                    if (ur!= null && !ur.equals(Uri.EMPTY)) {
 
 
-                    storageReference.child("images/"+key).putFile(picture.getPicture()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            myGlobal.toast("Images uploaded");
+                        storageReference.child("images/" + key).putFile(ur).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                myGlobal.toast("Images uploaded");
 
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                        myGlobal.toast(e.getMessage().toString());
-                        }
-                    });
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                myGlobal.toast(e.getMessage().toString());
+                            }
+                        });
 
-
+                    }
 
 
 

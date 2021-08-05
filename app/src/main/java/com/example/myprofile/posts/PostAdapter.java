@@ -1,6 +1,7 @@
 package com.example.myprofile.posts;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +46,7 @@ public class PostAdapter  extends FirestoreRecyclerAdapter<PostData,PostHolder> 
         holder.postLinks.setText(model.getPostLinks());
         Linkify.addLinks(holder.postLinks,Linkify.WEB_URLS|Linkify.PHONE_NUMBERS);
         PostUrl postUrl=model.getPostUrl();
-        if(!postUrl.getPostImageUrl().equals("")) {
+        if(postUrl.getPostImageUrl()!=null && !postUrl.getPostImageUrl().equals(Uri.EMPTY)) {
             Glide.with(holder.itemView.getContext()).load(postUrl.getPostImageUrl()).into(holder.postImage);
         }
 

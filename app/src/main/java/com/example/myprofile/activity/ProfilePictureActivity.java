@@ -31,7 +31,7 @@ public class ProfilePictureActivity extends AppCompatActivity {
     private ImageView picturePic;
     private Button pictureSelect,pictureProceed;
      static Uri uri;
-     static Uri imageuri;
+     static Uri imageuri=Uri.EMPTY;
      static String TAG="Hello";
      MyGlobal myGlobal;
     @Override
